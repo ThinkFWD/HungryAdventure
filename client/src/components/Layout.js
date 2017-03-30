@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux'; 
 
-import { fetchUser } from '../actions/userAction'
-import { fetchDestinations } from '../actions/destinationsActions'
+import actions from '../actions/queryAction';
+
+import { fetchUser } from '../actions/userAction';
+import { fetchDestinations } from '../actions/destinationsActions';
 
 @connect((store) => {
   return {

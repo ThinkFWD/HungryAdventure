@@ -5,6 +5,7 @@ module.exports = {
   entry: [
     './client.js',
   ],
+  devtool:'source-map',
   output: {
     path: path.join(__dirname, 'client/assets'),
     filename: 'bundle.js',
@@ -16,7 +17,7 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
-          presets:['es2015', 'react', 'stage-2'],
+          presets:['stage-2'],
           plugins:['transform-decorators-legacy'],
         }
       }
