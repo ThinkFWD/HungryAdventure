@@ -12,10 +12,10 @@ const app = express();
 app.use(cors());
 require('./config/routes.js')(app, express);
 
-app.use('/build', express.static(path.join(__dirname, '/../build')));
-app.use(express.static(path.join(__dirname, '/../public')));
+app.use('/build', express.static(path.join(__dirname, '../build')));
+app.use(express.static(path.join(__dirname, '../public')));
 
-console.log('HELLO WOLRD', __dirname);
+console.log('HELLO WOLRD', path.join(__dirname, '../public'));
 
 // app.get('*', (request, response) => {
 //   response.sendFile(path.resolve(`${__dirname}/../public`, 'index.html'));
