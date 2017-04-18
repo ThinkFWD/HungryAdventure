@@ -10,7 +10,7 @@
 
   <!-- Style Sheet -->
   <link href="//fonts.googleapis.com/css?family=Gudea|Quicksand" rel="stylesheet">
-  <link rel="stylesheet" href="style/minify/style.css">
+  <link rel="stylesheet" href="/style/minify/style.css">
 
   <!-- Title -->
   <title> Hungry Adventure </title>
@@ -40,55 +40,5 @@
 <body id="page-top">
 <div id="app"></div>
 <script src="bundle.js" ></script>
-<!--
-<button onClick="changeData()">change</button>
-<script>
-
-
-//Graph Details
-const budget = 1000;
-const flightCost = 200;
-const hotelCost = 100;
-const activityCost = 100;
-const foodCost = 50;
-const totalBudget = budget - flightCost - hotelCost - activityCost - foodCost;
-
-
-var salesData=[
-  {label:"Budget", color:"#3366CC", value: totalBudget},
-  {label:"Hotel", color:"#DC3912", value: hotelCost},
-  {label:"Activities", color:"#FF9900", value: activityCost},
-  {label:"Food", color:"#109618", value: foodCost},
-  {label:"Flight", color:"#990099", value: flightCost}
-];
-
-
-var svg = d3.select("#graph").append("svg").attr("width",300).attr("height",250);
-svg.append("g").attr("id","quotesDonut");
-
-Donut3D.draw("quotesDonut", salesData, 150, 100, 130, 100, 30, 0);
-  
-function changeData(){
-  Donut3D.transition("quotesDonut", randomData(), 130, 100, 30, 0);
-}
-
-function randomData(){
-  return salesData.map(function(d){ 
-    return {label:d.label, value: d.value +50, color:d.color};});
-}
-
-</script>
--->
-
-<!-- SCRIPT YOU SHOULD TRANSFER OUT -->
-
-
-
-
-
-<!-- PLEASE TRANSFER THIS OUT-->
-
-
-
 </body>
 </html>
