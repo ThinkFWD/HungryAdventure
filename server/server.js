@@ -13,7 +13,7 @@ app.use(cors());
 require('./config/routes.js')(app, express);
 
 app.use('/build', express.static(path.join(__dirname, '../build')));
-app.use(express.static(path.join(__dirname, '/../public')));
+app.use('/public', express.static(path.join(__dirname, '../public')));
 
 console.log(path.join(__dirname, '/../public'));
 
