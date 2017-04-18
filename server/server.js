@@ -13,13 +13,14 @@ app.use(cors());
 require('./config/routes.js')(app, express);
 
 app.use('/build', express.static(path.join(__dirname, '../build')));
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '/../public')));
 
-console.log('HELLO WOLRD', path.join(__dirname, '../public'));
+console.log('HELLO WOLRD', __dirname);
 
-// app.get('*', (request, response) => {
-//   response.sendFile(path.resolve(`${__dirname}/../public`, 'index.html'));
-// });
+app.get('*', (request, response) => {
+  console.log('WE NEED TO SERVE', request.url);
+  response.sendFile(path.resolve(`${__dirname}/../public`, 'index.html'));
+});
 
 const server = app.listen(ports, () => {
   const host = server.address().address;
