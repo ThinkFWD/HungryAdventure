@@ -3,8 +3,7 @@ node_modules
 .env
 keys
 env.json
-build
-public/style/minify
+
 
 =#.##
 
