@@ -10,18 +10,18 @@ export function destinationSet({
   carrier,
   imageUrl }) {
   return function (dispatch) {
-    console.log('PRICE--->', price);
     return dispatch({ type: 'SET_DESTINATION',
-    payload: {
-      price,
-      arrivalDate,
-      departureDate,
-      originTerminal,
-      city,
-      country,
-      IataCode,
-      carrier,
-      imageUrl,
-    },
-  });
-}}
+      payload: {
+        price,
+        arrivalDate,
+        departureDate,
+        originTerminal,
+        city,
+        country,
+        IataCode,
+        carrier,
+        imageUrl,
+      },
+    });
+  };
+}

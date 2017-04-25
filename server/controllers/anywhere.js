@@ -1,13 +1,18 @@
 const rp = require('request-promise');
 const anywhereHelper = require('../helpers/anywhereHelper.js');
+const dummyFlights = require('../dummy/dummyFlights.js');
 
 module.exports = {
+  getAnywhereDummy: (req, res) => {
+    res.send(dummyFlights);
+  },
   getAnywhere: (req, res) => {
     const departDate = req.query.departDate.slice(0, 10);
     const arrivalDate = req.query.arrivalDate.slice(0, 10);
+    const cityId = req.query.cityId || 'NYCA';
 
     const options = {
-      url: `http://partners.api.skyscanner.net/apiservices/browsequotes/v1.0/US/USD/en-US/NYCA/anywhere/${departDate}/${arrivalDate}?apiKey=${process.env.SKYSCANNER_API}`,
+      url: `http://partners.api.skyscanner.net/apiservices/browsequotes/v1.0/US/USD/en-US/${cityId}/anywhere/${departDate}/${arrivalDate}?apiKey=${process.env.SKYSCANNER_API}`,
       headers: {
         contentType: 'application/json',
       },
@@ -17,13 +22,13 @@ module.exports = {
         const parsedData = JSON.parse(data);
         const top = anywhereHelper.sortFunc(parsedData.Quotes);
         const filterTop = anywhereHelper.uniqueFunc(top);
-        const top21 = filterTop.length >= 21 ? filterTop.slice(0, 21) : filterTop;
-        const budgetTop = anywhereHelper.budgetFunc(top21, req.query.Budget);
+        const top50 = filterTop.length >= 50 ? filterTop.slice(0, 50) : filterTop;
+        const budgetTop = anywhereHelper.budgetFunc(top50, req.query.Budget);
         const finalarray = [];
         budgetTop.forEach(() => {
           finalarray.push({});
         });
-        anywhereHelper.trimSkyBody(finalarray, top21, parsedData);
+        anywhereHelper.trimSkyBody(finalarray, budgetTop, parsedData);
         return finalarray;
       })
       .catch((err) => {

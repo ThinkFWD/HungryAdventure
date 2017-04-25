@@ -5,7 +5,7 @@ export default function reducer(state = {
   error: null,
 }, action) {
   switch (action.type) {
-    case 'FETCH_DESTINATIONS': {
+    case 'FETCH_DESTINATION_TOGGLE': {
       return {
         ...state,
         fetching: true,
@@ -19,7 +19,6 @@ export default function reducer(state = {
       };
     }
     case 'FETCH_DESTINATIONS_FULFILLED': {
-      console.log('+++++++', action.payload);
       return { ...state,
         fetching: false,
         fetched: true,

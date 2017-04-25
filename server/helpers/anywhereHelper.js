@@ -26,11 +26,11 @@ module.exports = {
   },
   budgetFunc: (array, budget) => {
     let newArr = array.slice();
-    newArr.forEach((elem, i) => {
-      if (array.MinPrice > budget) {
+    for (let i = 0; i < newArr.length; i += 1) {
+      if (Math.floor(newArr[i].MinPrice * 1.25) > budget) {
         newArr = newArr.slice(0, i);
       }
-    });
+    }
     return newArr;
   },
   trimSkyBody: (finalarray, skyBody, data) => {
@@ -65,7 +65,7 @@ module.exports = {
     };
     skyBody.forEach((elem, i) => {
       const trimResults = finalarray[i];
-      trimResults.price = elem.MinPrice;
+      trimResults.price = Math.floor(elem.MinPrice * 1.25);
       trimResults.carrierId = elem.OutboundLeg.CarrierIds[0];
       trimResults.originId = elem.OutboundLeg.OriginId;
       trimResults.destinationId = elem.InboundLeg.OriginId;

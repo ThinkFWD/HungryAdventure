@@ -1,18 +1,31 @@
 @import 'variables';
 
 body {
-  font-family: $default;
-  margin:auto;
+  font-family: $font-default;
+
 }
+.hero {
+  width: 100%;
+  height: 300px;
+  background-size: cover;
+  background-position: center center;
+}
+
 .title {
-  font-family: $brand;
+  font-family: $font-brand;
 }
 div.tile {
-  width: 300px;
-  height: 300px;
-  // border-width:medium;
-  margin: 20px 0;
-  right:auto;
+  width: 375px;
+  height: 275px;
+  margin: 10px;
+  @media only screen and (max-width: 1250px) and  (min-width: 400px) {
+    margin: 10px auto;
+  }
+  @media only screen and (max-width: 400px){
+    width: 3 * (375px) / 4;
+    height: 3 * (275px) / 4;
+    margin: 10px auto;
+  }
 }
 div.right {
   text-align: right;
@@ -27,7 +40,7 @@ div.bold {
 }
 .flight {
   width: 100%;
-  height: 70%;
+  height: 100%;
 }
 .carousel-inner > .item > img {
     height: 100%;
@@ -47,7 +60,126 @@ span.icon {
        text-align: center;
   }
 }
-
 .budgetSearch {
   padding-right: 0;
+  margin-right: 5px;
+}
+#header{
+  height:50%;
+  img {
+    height: 100%;
+  }
+}
+.destentry {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.post-content {
+  color: white;
+  font-size: 30px;
+  bottom: 7%;
+  left: 8%;
+  position: absolute;
+    @media only screen and (max-width: 400px){
+      left: 15%;
+    }
+}
+.btn-custom {
+    background-color: $color-main;
+    color: white;
+    border-width: medium;
+    border-radius: 5px;
+    border-color: white;
+}
+.btn-custom:hover, .btn-custom:active, .btn-custom:visited, .btn-custom:focus {
+    background-color: white;
+    color: $color-main;
+}
+
+
+/*++++++++++++++++++++
+++ STORY PAGE STYLE ++
+++++++++++++++++++++*/
+.blankContainer {
+  font-family: $font-brand;
+  color: white;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  font-size: 24px;
+}
+.infoContainer {
+  @extend .blankContainer;
+  background-color: #0abab5;
+}
+.rule {
+  padding: 20px 0;
+  margin: 20px 0;
+  border-top:1px solid #fff;
+  border-bottom: 1px solid #fff;
+}
+.price-title{
+  margin-bottom:0;
+}
+@media (min-width:768px){
+  .jumbotron-subscriptions .price-title{
+    float:left!important
+  }
+}
+.text-aquamarine{
+  color: $color-aquamarine;
+}
+.text-white{
+  color: #fff;
+}
+
+.btn-solid{
+  color:#fff;
+  background-color:#7c25f8;
+  padding: 14px 45px;
+  border-width: 0;
+  letter-spacing: 2px;
+  display: inline-block;
+  margin-top: 20px;
+}
+.btn-solid:hover{
+  color:#fff;
+  background-color:#6207e3;
+}
+.btn-solid:focus{
+  color:#fff;
+  background-color:#5706ca;
+  -webkit-box-shadow:0 0 0 2px rgba(0,0,0,.1) inset;
+  box-shadow:0 0 0 2px rgba(0,0,0,.1) inset;
+}
+.btn-solid.active,.btn-solid.active:hover,.btn-solid:active,.btn-solid:active:hover,.open>.dropdown-toggle.btn-solid,.open>.dropdown-toggle.btn-solid:hover{
+  background-color:#5706ca;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+}
+.btn-solid.disabled,.btn-solid[disabled],fieldset[disabled] .btn-solid{
+  background-color:#c1c3c6
+}
+.h3{
+  font-family:inherit;
+  font-weight:900;
+  line-height:1.1;
+  font-size: 40px;
+}
+div .rule {
+  p {
+    font-size: 24px;
+  }
+}
+input[type=checkbox], input[type=radio] {
+    margin: 40px 0 0;
+  }
+
+@media only screen and (min-width : 992px) {
+  .text-center {
+    height: 30%;
+  }
+}
+.container.services {
+  height: 15%;
 }

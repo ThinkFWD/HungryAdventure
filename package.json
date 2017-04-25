@@ -1,18 +1,18 @@
 {
   "name": "hungry-adventure",
   "version": "1.0.0",
-  "description": "",
+  "description": "Travel Application",
   "main": "server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "webpack -w",
-    "start": "nodemon ./server/server.js --exec babel-node --presets stage-2"
+    "start": "nodemon ./server/server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hungry-adventure/hungry-adventure.git"
   },
-  "author": "",
+  "author": "Michael Chan, Cameron Dunne, Vincent Liu, Bryam Pacheco",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/hungry-adventure/hungry-adventure/issues"
@@ -23,37 +23,54 @@
     "babel-cli": "^6.24.0",
     "babel-core": "^6.24.0",
     "babel-loader": "^6.4.1",
+    "commitizen": "^2.9.6",
+    "cors": "^2.8.3",
     "css-loader": "^0.28.0",
     "dotenv": "^4.0.0",
     "express": "^4.15.2",
     "file-loader": "^0.11.1",
     "google-map-react": "^0.23.0",
-    "gulp": "^3.9.1",
-    "gulp-sass": "^3.1.0",
+    "gulp-clean-css": "^3.0.4",
+    "gulp-concat": "^2.6.1",
     "knex": "^0.12.9",
     "lodash": "^4.17.4",
+    "lodash.omit": "^4.5.0",
+    "merge-stream": "^1.0.1",
     "moment": "^2.18.1",
+    "node-geocoder": "^3.16.0",
     "nodemon": "^1.11.0",
     "path": "^0.12.7",
     "pg": "^6.1.5",
-    "react": "^15.4.2",
+    "react": "^15.5.3",
+    "react-addons-shallow-compare": "^15.5.2",
     "react-bootstrap": "^0.30.8",
-    "react-dom": "^15.4.2",
+    "react-dom": "^15.5.3",
+    "react-donut-chart": "^1.0.5",
+    "react-facebook-login": "^3.5.0",
     "react-redux": "^5.0.3",
     "react-router": "^4.0.0",
     "react-router-dom": "^4.0.0",
+    "react-scroll": "^1.5.2",
+    "react-slick": "^0.14.7",
+    "react-star-rating-component": "^1.2.4",
+    "react-tap-event-plugin": "^2.0.1",
     "react-widgets": "^3.4.6",
     "redux": "^3.6.0",
+    "redux-devtools-extension": "^2.13.0",
     "redux-form": "^6.6.1",
+    "redux-localstorage": "^0.4.1",
     "redux-logger": "^3.0.0",
     "redux-promise-middleware": "^4.2.0",
     "redux-thunk": "^2.2.0",
     "request": "^2.81.0",
     "request-promise": "^4.2.0",
+    "scrape-it": "^3.3.2",
     "style-loader": "^0.16.1",
     "url-loader": "^0.5.8",
+    "vue": "^2.2.6",
     "webpack": "^2.3.2",
-    "webpack-dev-middleware": "^1.10.1"
+    "webpack-dev-middleware": "^1.10.1",
+    "x-ray": "^2.3.2"
   },
   "devDependencies": {
     "babel-plugin-transform-decorators": "^6.22.0",
@@ -61,13 +78,25 @@
     "babel-preset-latest": "^6.24.0",
     "babel-preset-react": "^6.23.0",
     "babel-preset-stage-2": "^6.22.0",
+    "css-loader": "^0.28.0",
+    "cz-conventional-changelog": "^2.0.0",
     "eslint": "^3.18.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
+    "extract-text-webpack-plugin": "^2.1.0",
     "gulp": "^3.9.1",
     "gulp-sass": "^3.1.0",
-    "node-geocoder": "^3.16.0"
+    "node-geocoder": "^3.16.0",
+    "node-sass": "^4.5.2",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.16.1",
+    "webpack": "^2.3.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

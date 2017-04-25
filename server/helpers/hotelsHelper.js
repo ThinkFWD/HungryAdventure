@@ -4,16 +4,19 @@ module.exports = {
     const listings = data.search_results;
     listings.forEach((elem) => {
       const list = {};
-      list.hotel = 'airbnb';
-      list.id = elem.listing.id;
-      list.lat = elem.listing.lat;
-      list.lng = elem.listing.lng;
-      list.neighborhood = elem.listing.neighborhood;
-      list.rating = elem.listing.star_rating;
-      list.price = elem.pricing_quote.rate_with_service_fee.amount;
-      list.url = `https://www.airbnb.com/rooms/${elem.listing.id}`;
-      list.pictures = elem.listing.picture_urls;
-      hotelResults.push(list);
+      if (elem.listing.star_rating !== null && elem.listing.star_rating > 4) {
+        list.hotel = 'airbnb';
+        list.address = elem.listing.public_address;
+        list.id = elem.listing.id;
+        list.lat = elem.listing.lat;
+        list.lng = elem.listing.lng;
+        list.neighborhood = elem.listing.neighborhood;
+        list.rating = elem.listing.star_rating;
+        list.price = elem.pricing_quote.rate_with_service_fee.amount;
+        list.url = `https://www.airbnb.com/rooms/${elem.listing.id}`;
+        list.pictures = elem.listing.picture_urls;
+        hotelResults.push(list);
+      }
     });
     return hotelResults;
   },

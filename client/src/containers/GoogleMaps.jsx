@@ -1,40 +1,54 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import GoogleMapReact from 'google-map-react';
-import { fetchGeo } from '../actions/geoAction';
-const  API = require('../keys/mapsKey.js');
 
-const AnyReactComponent = ({ text }) => <div className="mapsText">{text}</div>;
+import { HotelPin, YelpPin, FlightPin } from '../components/Pins';
+import { googleMaps } from '../keys/mapsKey';
 
-export default class GoogleMaps extends Component {
+class GoogleMaps extends Component {
 
 
-   componentWillMount() {
-    fetchGeo({location: 'paris'}, function({ latitude, longitude }){
-      console.log(latitude, longitude)
-    })
-  };
-
-  static defaultProps = {
-    center: {lat: 40.7127837, lng: -74.0059413},
-    zoom: 15
-  };
   render() {
-
+    if (this.props.locator === undefined) {
+      return (
+        <div>loading</div>
+      );
+    }
     return (
-      <div className="maps">
       <GoogleMapReact
-        defaultCenter={this.props.center}
-        defaultZoom={this.props.zoom}
-        bootstrapURLKeys={{key: API.googleMaps()}}
+        options={{ scrollwheel: false }}
+        defaultCenter={{ lat: this.props.locator.latitude, lng: this.props.locator.longitude }}
+        defaultZoom={11}
+        bootstrapURLKeys={{ key: googleMaps() }}
       >
-        <AnyReactComponent
-          lat={40.714392}
-          lng={-74.006649}
-          text={'THIS IS YOUR PLACE'}
-        />
-
+        {this.props.mapArray.map((elem, index) => {
+          if (elem.latitude) {
+            return (
+              <FlightPin
+                lat={elem.latitude}
+                lng={elem.longitude}
+                key={elem.city}
+              />);
+          } else if (elem.lat) {
+            return (<HotelPin
+              lat={elem.lat}
+              lng={elem.lng}
+              key={elem.id}
+            />);
+          }
+          return (<YelpPin
+            lat={elem.coordinates.latitude}
+            lng={elem.coordinates.longitude}
+            key={elem.name}
+          />);
+        })}
       </GoogleMapReact>
-      </div>
     );
   }
 }
+
+const mapStateToProps = state => ({
+  ...state,
+});
+
+export default connect(mapStateToProps, null)(GoogleMaps);
